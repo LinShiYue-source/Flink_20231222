@@ -19,7 +19,7 @@ public class GmallConfig {
     public static final String CLICKHOUSE_DRIVER = "ru.yandex.clickhouse.ClickHouseDriver";
 
     // ClickHouse 连接 URL
-    public static final String CLICKHOUSE_URL = "jdbc:clickhouse://hadoop102:8123/gmall_rebuild";
+    public static final String CLICKHOUSE_URL = "jdbc:clickhouse://hadoop102:8123/gmall20231226";
 
 
 }

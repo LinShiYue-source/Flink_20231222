@@ -2,6 +2,7 @@ package com.audi.app.dws;
 
 import com.audi.app.fun.SplitFunction;
 import com.audi.bean.KeywordBean;
+import com.audi.util.ClickHouseUtil;
 import com.audi.util.KafkaUtil;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -73,6 +74,7 @@ public class DwsTrafficSourceKeywordPageViewWindow {
         resultDS.print("resultDS");
 
         //todo 7.将结果写到clickhouse
+        resultDS.addSink(ClickHouseUtil.getJdbcSink("insert into dws_traffic_source_keyword_page_view_window values(?,?,?,?,?,?)"));
 
         //todo 8.启动任务
         env.execute();
